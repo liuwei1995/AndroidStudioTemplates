@@ -53,6 +53,20 @@
         help="accessibilityService  服务提示的文字"
         default="accessibilityService" />
 
+    <parameter
+        id="accessibilityServiceLabelName"
+        name="accessibilityService label Name"
+        type="string"
+        help="accessibilityService 的 label Name"
+        default="" />
+
+    <parameter
+        id="listeningPackageName"
+        name="listening PackageName"
+        type="string"
+        help="要监听的app包名   "
+        default="so.ofo.labofo" />
+
 
 
     <globals file="globals.xml.ftl" />

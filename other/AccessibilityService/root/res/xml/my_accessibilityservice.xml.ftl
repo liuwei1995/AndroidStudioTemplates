@@ -4,11 +4,19 @@
                        android:accessibilityFeedbackType="feedbackAllMask"
                        android:accessibilityFlags="flagDefault"
                        android:canRetrieveWindowContent="true"
+                       <#if isDescription>
+                       android:description="@string/${accessibilityServiceDescriptionName}"
+                       <#else>
                        android:description="@string/my_AccessibilityService"
+                       </#if>
                        android:notificationTimeout="100"
-                       android:packageNames="${relativePackage}"
+                        <#if listeningPackageName == "">
+                             android:packageNames="${relativePackage}"
+                         <#else>
+                              android:packageNames="${listeningPackageName}"
+                         </#if>
     >
-	<!--  packageNames  改为需要监听的包名 -->
+	<!--  packageNames listeningPackageName 改为需要监听的包名 -->
 	
     <!-- android:settingsActivity="foo.bar.TestBackActivity"-->
     <!-- android:canRequestTouchExplorationMode="true"-->
