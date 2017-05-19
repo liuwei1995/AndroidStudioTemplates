@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="3"
+    name="AccessibilityService"
+    description="Creates a new intent service class."
+    minApi="11"
+    minBuildApi="3">
+
+    <category value="Service" />
+
+    <parameter
+        id="className"
+        name="Class Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="MyAccessibilityService" />
+
+
+    <parameter
+        id="accessibilityServiceXmlName"
+        name="accessibilityServiceXml Name"
+        type="string"
+        constraints="nonempty"
+        help="Generate my_accessibilityservice to res/xml"
+        default="my_accessibilityservice" />
+
+
+    <parameter
+        id="isDescription"
+        name="is change Description"
+        type="boolean"
+        default="false"
+        help="res/values/strings.xml  默认为strings-> name = my_AccessibilityService values = accessibilityService" />
+
+
+    <parameter
+        id="accessibilityServiceDescriptionName"
+        name="DescriptionName"
+        type="string"
+        constraints="nonempty"
+        visibility="isDescription"
+        help="accessibilityService 服务提示文字在strings.xml 里面的name "
+        default="my_accessibilityService" />
+
+
+    <parameter
+        id="accessibilityServiceDescriptionValues"
+        name="DescriptionValues"
+        type="string"
+        constraints="nonempty"
+        visibility="isDescription"
+        help="accessibilityService  服务提示的文字"
+        default="accessibilityService" />
+
+
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
