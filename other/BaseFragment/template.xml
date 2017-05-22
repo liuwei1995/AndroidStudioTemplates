@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<template
+    name="Base Fragment"
+    description="Creates a new Base fragment "
+    format="5"
+    minApi="9"
+    minBuildApi="14"
+    requireAppTheme="true"
+    revision="6">
+
+    <category value="liuwei"/>
+
+    <formfactor value="Mobile"/>
+
+    <parameter
+        name="Object Kind"
+        constraints="nonempty"
+        default="Base"
+        help="Other examples are 'Person', 'Book', etc."
+        id="objectKind"
+        type="string"
+        visibility="false"/>
+
+    <parameter
+        name="Fragment Name"
+        constraints="class|unique|nonempty"
+        default="BaseFragment"
+        help="The name of the Fragment class to create"
+        id="fragmentClass"
+        suggest="${extractLetters(objectKind)}Fragment"
+        type="string"/>
+    <parameter
+        name="是否使用MVP模式  Persenter"
+        default="false"
+        help="true  表示使用MVP模式  "
+        id="isGeneric"
+        type="boolean"
+    />
+    <parameter
+        name="Presenter Name"
+        constraints="class|unique"
+        default="BaseFragmentPresenter"
+        help="Creates a new FragmentPresenter "
+        id="presenterName"
+        type="string"
+        visibility="isGeneric"
+        suggest="${extractLetters(fragmentClass)}Presenter"
+    />
+    <!-- default="BaseFragmentPresenter"-->
+    <!-- suggest="${extractLetters(objectKind)}FragmentPresenter"-->
+    <!--${extractLetters(objectKind?lower_case)}-->
+    <parameter
+        name="IView Name"
+        constraints="class|unique"
+        default="BaseFragmentIView"
+        help="Creates a new FragmentPresenter "
+        id="IViewName"
+        suggest="${extractLetters(fragmentClass)}IView"
+        type="string"
+        visibility="isGeneric"
+    />
+<!--   suggest="${extractLetters(objectKind)}FragmentIView"-->
+
+
+    <!--(unique|exists|nonempty|empty|activity|apilevel|class|
+    package|app_package|module|layout|drawable|values|id|source_set_folder|string|uri_authority)-->
+    <parameter
+        name="Package name"
+        constraints="package"
+        default="www.liuwei1995.com"
+        id="packageName"
+        type="string"/>
+
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>background.png</thumb>
+        <!-- attributes act as selectors based on chosen parameters -->
+        <thumb isGeneric="true">background.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
+
+</template>
