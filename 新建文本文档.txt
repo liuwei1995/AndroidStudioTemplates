@@ -1,0 +1,5 @@
+//    android.widget.LinearLayout
+
+//so.ofo.labofo:id/car_number_view     解锁码
+//    so.ofo.labofo:id/report_view  112s后将开始计费，如车辆有问题请报修
+//    so.ofo.labofo:id/password_zone   密码  android.widget.LinearLayout
